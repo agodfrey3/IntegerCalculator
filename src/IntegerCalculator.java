@@ -18,40 +18,46 @@ public class IntegerCalculator  extends Frame {
     private TextField tf1;
     private TextField tf2;
     private Label l1;
-    private Button bAdd;
-    private Button bSub;
-    private Button bex;
+    private Button bAdd, bSub, bMult, bDiv, bex;
 
     private IntegerCalculator() {
+        setSize(300, 370);
+        this.setLocationRelativeTo(null);
+
         setTitle("Integer Calculator");
 
         tf1 = new TextField();
-        tf1.setBounds(100, 50, 85, 20);
+        tf1.setBounds(15, 50, 85, 20);
 
         tf2 = new TextField();
-        tf2.setBounds(100, 100, 85, 20);
+        tf2.setBounds(15, 100, 85, 20);
 
         bAdd = new Button("Add");
-        bAdd.setBounds(152,170, 60, 40);
+        bAdd.setBounds(105,45, 60, 40);
 
         bSub = new Button("Sub");
-        bSub.setBounds(88,170, 60, 40);
+        bSub.setBounds(170,45, 60, 40);
+
+        bMult = new Button("Mult");
+        bMult.setBounds(105,95, 60, 40);
+
+        bDiv = new Button("Div");
+        bDiv.setBounds(170,95, 60, 40);
 
         bex = new Button("Exit");
-        bex.setBounds(110, 220,60,40);
+        bex.setBounds(105, 145,60,40);
 
         l1 = new Label();
-        l1.setBounds(100, 110, 85, 20);
+        l1.setBounds(100, 150, 85, 20);
 
         add(bAdd);
         add(bSub);
+        add(bMult);
+        add(bDiv);
         add(bex);
         add(tf1);
         add(tf2);
         add(l1);
-
-        setSize(300, 300);
-        this.setLocationRelativeTo(null);
 
         bAdd.addActionListener((ActionEvent e) -> {
                 int a = Integer.parseInt(tf1.getText());
@@ -66,7 +72,23 @@ public class IntegerCalculator  extends Frame {
                 int b = Integer.parseInt(tf2.getText());
                 int c = a - b;
 
-                l1.setText("Their sum is = " + String.valueOf(c));
+                l1.setText("Their difference is = " + String.valueOf(c));
+        });
+
+        bMult.addActionListener((ActionEvent e) -> {
+            int a = Integer.parseInt(tf1.getText());
+            int b = Integer.parseInt(tf2.getText());
+            int c = a * b;
+
+            l1.setText("Their product is = " + String.valueOf(c));
+        });
+
+        bDiv.addActionListener((ActionEvent e) -> {
+            int a = Integer.parseInt(tf1.getText());
+            int b = Integer.parseInt(tf2.getText());
+            int c = a / b;
+
+            l1.setText("The quotient is = " + String.valueOf(c));
         });
 
         bex.addActionListener((ActionEvent e) -> System.exit(0));
