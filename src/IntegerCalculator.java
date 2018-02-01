@@ -45,10 +45,11 @@ public class IntegerCalculator  extends Frame {
         bDiv.setBounds(170,95, 60, 40);
 
         bex = new Button("Exit");
-        bex.setBounds(105, 145,60,40);
+        bex.setBounds(170, 145,60,40);
 
         l1 = new Label();
-        l1.setBounds(100, 150, 85, 20);
+        setLayout(null);
+        l1.setBounds(15, 150, 120, 20);
 
         add(bAdd);
         add(bSub);
